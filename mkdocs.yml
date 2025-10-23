@@ -1,0 +1,11 @@
+site_name: プログラミングの基本
+
+theme:
+  name: material
+  lang: ja
+  features:
+    - content.code.copy
+
+plugins:
+  - search
+  - open-in-new-tab
