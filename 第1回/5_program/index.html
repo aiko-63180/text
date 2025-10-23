@@ -778,7 +778,7 @@
 
 
 <h1 id="5">5. プログラミングを書こう</h1>
-<p>ここから Python を書いていきます。Python の実行方法が忘れた人は<a href="./3_exec.md">こちら</a>を見に行きましょう。</p>
+<p>ここから Python を書いていきます。Python の実行方法が忘れた人は<a href="../4_exec/">こちら</a>を見に行きましょう。</p>
 <h2 id="51-hello-world">5.1. Hello, World!</h2>
 <p>環境構築ができたら、さっそく最初のプログラムを書いてみましょう。画面に<code>Hello, World!</code>と表示させます。これは、プログラミングを学ぶ人が最初に書く、お約束のようなプログラムです。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
@@ -788,12 +788,12 @@
 <li>自分の名前を画面に表示するプログラムを書いてみましょう。</li>
 </ol>
 <h2 id="52">5.2. コメントアウト</h2>
-<p>Python では <code>#</code> (シャープ) から始まる行はインタプリタに認識されないという決まりになっています。この性質を利用して、<code>#</code> から始まる行に人間向けの内容を書くことで、他の人がソースコードを読みやすくできます。これをコメントアウトと言います。</p>
+<p>Python では <code>#</code> (シャープ) から始まる行はインタプリタに認識されないという決まりになっています。この性質を利用して、<code>#</code> から始まる行に人間向けの内容を書くことで、他の人がソースコードを読みやすくできます。これを<strong>コメントアウト</strong>と言います。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># この行は無視される</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="53">5.3. 変数を使ってみよう</h2>
-<p>プログラムの中で、データ（数字や文字）を一時的にしまっておくための「箱」のようなものが変数です。変数には好きな名前をつけることができます。</p>
+<p>プログラムの中で、データ（数字や文字）を一時的にしまっておくための「箱」のようなものが変数です</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;もり&quot;</span>  <span class="c1"># name という変数に「もり」という文字列を入れる</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;さん、こんにちは！&quot;</span><span class="p">)</span>
 </code></pre></div>
@@ -803,6 +803,15 @@
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">y</span> <span class="o">=</span> <span class="mi">20</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># 30 が出力される</span>
 </code></pre></div>
+<p>変数にはある程度好きな名前をつけることができます。ただしいくつかルールがあります。</p>
+<ul>
+<li>数字から始まる変数名は設定できません。たとえば<code>1x</code>は変数名として使えません。ただし、途中の文字を数字にすることはできるので、<code>x1</code>などは変数として使えます。</li>
+<li><code>=</code>や<code>:</code>など一部の文字も変数名として使えません。</li>
+</ul>
+<div class="admonition tips">
+<p class="admonition-title">日本語の変数名について</p>
+<p>現在の Python はデフォルトでUTF-8をサポートしているため、全角文字を変数にすることは可能ですが、<strong>推奨されません</strong>。可読性や保守性といった理由から<strong>好まれない</strong>ので<strong>書かないように</strong>しましょう。</p>
+</div>
 <h3 id="_2">練習問題</h3>
 <ol>
 <li>自分の好きな食べ物を変数に入れ、それを画面に表示してみましょう。</li>
