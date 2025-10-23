@@ -660,16 +660,21 @@ x = x + 1
 print(x) # 4 が出力される
 </code></pre>
 <p>ここで、 <code>x = x + 1</code> という部分は古い <code>x</code> の値に <code>1</code> を足したものを新しい <code>x</code> の値として更新するという意味になります。</p>
-<p>!!! note "わかる人向けの補足"</p>
-<pre><code>Pythonの整数型はイミュータブル (immutable) なので、内部ではxの値は更新されているというよりも全く新しい変数が作られ、それがxという名前をもち、古い変数の名前を上書きしてしまっていると捉える方が見方としては正しいです。
-</code></pre>
+<div class="admonition note">
+<p class="admonition-title">わかる人向けの補足</p>
+<p>Pythonの整数型はイミュータブル (immutable) なので、内部ではxの値は更新されているというよりも全く新しい変数が作られ、それがxという名前をもち、古い変数の名前を上書きしてしまっていると捉える方が見方としては正しいです。</p>
+</div>
 <h3 id="_3">練習問題</h3>
 <ol>
 <li>数列 <span class="arithmatex">\(\{a_n\}\)</span> を
-[a_{n+2}=2a_{n+1}+a_n,\quad a_1=2, a_2=3]
+$$
+a_{n+2}=2a_{n+1}+a_n,\quad a_1=2, a_2=3
+$$
 で定義します。 <span class="arithmatex">\(a_5\)</span> の値を計算するプログラムを書いてみましょう。</li>
 </ol>
-<p>!!! tips "ヒント"</p>
+<div class="admonition tips">
+<p class="admonition-title">ヒント</p>
+</div>
 <p>掛け算は<code>*</code>(アスタリスク)で書けます。例えば変数<code>x</code>の値を元の値の2倍に更新したい場合は、<code>x = 2 * x</code>とすればよいです。</p>
 
 
