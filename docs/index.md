@@ -24,3 +24,4 @@
 
 - [万一環境構築が上手くいかなかったとき](./others/colab.md)
 - [このサイトについて](./others/site.md)
+- [コラム記事のまとめ](./others/columns.md)
