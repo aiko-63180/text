@@ -9,6 +9,7 @@ Web テキストにも同じ内容を書いていますが、全員の環境を�
 [前半のノートブックを開く](https://colab.research.google.com/github/aiko-63180/notebooks/blob/main/text1.ipynb)
 
 内容
+
 - `print`関数による出力
 - コメントアウト
 - 変数
@@ -16,5 +17,8 @@ Web テキストにも同じ内容を書いていますが、全員の環境を�
 [後半のノートブックを開く](https://colab.research.google.com/github/aiko-63180/notebooks/blob/main/text2.ipynb)
 
 内容
+
 - 条件分岐
 - ループ
+
+[デモで使用したAIのソースコード](https://github.com/aiko-63180/racing)
