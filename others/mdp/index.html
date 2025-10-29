@@ -1,0 +1,1401 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../input/">
+      
+      
+        <link rel="next" href="../q_learning/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>マルコフ決定過程の基礎理論 - プログラミングの基本</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="プログラミングの基本" class="md-header__button md-logo" aria-label="プログラミングの基本" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            プログラミングの基本
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              マルコフ決定過程の基礎理論
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="プログラミングの基本" class="md-nav__button md-logo" aria-label="プログラミングの基本" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    プログラミングの基本
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    プログラミングの基本
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Others
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Others
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_exercise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. 総合演習
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../colab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    もし環境構築が上手くいかなかったときのために
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../columns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    コラム記事のまとめ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../input/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. 入力処理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    マルコフ決定過程の基礎理論
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    マルコフ決定過程の基礎理論
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      マルコフ決定過程の定義
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      方策と最適化問題の定式化
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      ベルマン方程式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      ベルマンの最適性原理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      ベルマンの最適性原理の証明(概要)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      ベルマンの最適性原理の証明
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      補遺：数学の準備
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="補遺：数学の準備">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      実数の完備性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      距離空間
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      縮小写像の不動点定理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../q_learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    \(Q\)-学習
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    このサイトについて
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    第1回
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            第1回
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC1%E5%9B%9E/1_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. はじめに
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC1%E5%9B%9E/2_linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Linux 開発環境の有効化
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC1%E5%9B%9E/3_vscode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Visual Studio Code のインストール
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC1%E5%9B%9E/4_exec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Python の実行方法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    第2回
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            第2回
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC2%E5%9B%9E/0_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    はじめに
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC2%E5%9B%9E/1_program/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. プログラミングを書こう
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC2%E5%9B%9E/2_if/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. 条件分岐
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC2%E5%9B%9E/3_loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. ループ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      マルコフ決定過程の定義
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      方策と最適化問題の定式化
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      ベルマン方程式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      ベルマンの最適性原理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      ベルマンの最適性原理の証明(概要)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      ベルマンの最適性原理の証明
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      補遺：数学の準備
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="補遺：数学の準備">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      実数の完備性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      距離空間
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      縮小写像の不動点定理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">マルコフ決定過程の基礎理論</h1>
+<p>ここでは強化学習の数学的基礎を与える <strong>マルコフ決定過程</strong> について概説します。もともと <span class="arithmatex">\(Q\)</span>-学習の話とひとまとめにするつもりでしたが、理論の話をしていると結構長くなってしまったので分けました。</p>
+<p>ここではマルコフ決定過程の数学的な性質、特に <strong>ベルマンの最適性原理</strong> について述べます。これはマルコフ性のおかげで、マルコフ決定過程ではある意味貪欲な戦略が最適になるということを主張する定理です。なお、ベルマンの最適性原理から存在が保証される最適な戦略を実際にどうやって計算するかといった、アルゴリズムに関する話は<a href="../q_learning/"><span class="arithmatex">\(Q\)</span>-学習</a> の方を見てください。ある程度適切な条件下では <span class="arithmatex">\(Q\)</span>-学習は、この問題に対する一つの効率的なアルゴリズムを与えます。また、今回は述べませんがベルマン方程式の線形性から <span class="arithmatex">\(Q\)</span>-学習のような動的計画法だけでなく、線形計画法もマルコフ決定過程に対して有効なアプローチとなり、こちらは <strong>オペレーションリサーチ</strong> と呼ばれる分野で古くから調べられてきました。</p>
+<p>ベルマンの最適性原理の証明に際して、高校の数学を超える範囲は縮小写像の不動点定理のみのはずで、この定理も度々大学入試問題で見られる定理なので、ご存知の方も多いかもしれません。なので恐らく高校生でも理解できるはずです。なお、念のため縮小写像の不動点定理については最後に<a href="#7">補足</a>しておきますが、必要になり次第振り返るだけで十分だと思います。</p>
+<p>マルコフ決定過程は上述した強化学習やオペレーションリサーチ以外にも <strong>数理経済学</strong> や <strong>ゲーム理論</strong> のような領域でも研究対象になっています。実際証明を覗いてみればゲーム理論などで頻繁に用いられる数学的手法が大活躍していることを見ることができるはずです。</p>
+<ol>
+<li><a href="#1">マルコフ決定過程</a></li>
+<li><a href="#2">方策と最適化問題の定式化</a></li>
+<li><a href="#3">ベルマン方程式</a></li>
+<li><a href="#4">ベルマンの最適性原理</a></li>
+<li><a href="#5">ベルマンの最適性原理の証明(概要)</a></li>
+<li><a href="#6">ベルマンの最適性原理の証明</a></li>
+<li><a href="#7">補遺：必要な数学の補足</a></li>
+</ol>
+<h2 id="_2"><a id="1">マルコフ決定過程の定義</a></h2>
+<p>強化学習のもっとも標準的なモデルは <strong>マルコフ決定過程(Markov Decision Process)</strong> という数理モデルです。まず定義を見ておきましょう。</p>
+<div class="admonition note">
+<p class="admonition-title">定義(マルコフ決定過程)</p>
+<p>有限集合 <span class="arithmatex">\(S,A\)</span> および関数 <span class="arithmatex">\(T:S\times A\times S\to[0,1]\)</span> および <span class="arithmatex">\(R:S\times A\times S\to\mathbb{R}\)</span> であって、任意の <span class="arithmatex">\(s\in S,a\in A\)</span> に対して、</p>
+<div class="arithmatex">\[
+\sum_{s'\in S}T(s,a,s')=1
+\]</div>
+<p>を満たすような4つ組 <span class="arithmatex">\((S,A,T,R)\)</span> を <strong>マルコフ決定過程</strong> という。また、<span class="arithmatex">\(S\)</span> を <strong>状態空間(state space)</strong> といい、<span class="arithmatex">\(A\)</span> を <strong>行動空間(action space)</strong> という。</p>
+</div>
+<p>定義がやや抽象的なのでマルコフ決定過程 <span class="arithmatex">\((S,A,T,R)\)</span> の各要素の"気持ち"を書いておくと、</p>
+<ul>
+<li><span class="arithmatex">\(S\)</span>: モデルがとり得る状態全体の集合</li>
+<li><span class="arithmatex">\(A\)</span>: モデルがとれる行動全体の集合</li>
+<li><span class="arithmatex">\(T\)</span>: 状態が <span class="arithmatex">\(s\in S\)</span> のとき、行動 <span class="arithmatex">\(a\in A\)</span> をとった際に状態が <span class="arithmatex">\(s'\in S\)</span> に遷移する確率が <span class="arithmatex">\(T(s,a,s')\)</span></li>
+<li><span class="arithmatex">\(R\)</span>: 状態が <span class="arithmatex">\(s\in S\)</span> のとき、行動 <span class="arithmatex">\(a\in A\)</span> をとった際に状態が <span class="arithmatex">\(s'\in S\)</span> に遷移したときの報酬が <span class="arithmatex">\(R(s,a,s')\)</span></li>
+</ul>
+<details class="tips">
+<summary>状態や行動が無限集合になる場合</summary>
+<p>ここでは数学的な煩雑さを避けるために最初から状態空間と行動空間に有限性を課しました。これを強調したい場合は <strong>有限マルコフ決定過程(Finite Markov Decision Process)</strong> と言ったりします。</p>
+<p>なお、発展的な話題を話しておくと、マルコフ決定過程は一般には <span class="arithmatex">\((S,\mathcal{S}),(A,\mathcal{A})\)</span> が可測空間であれば定義されます。その際、確率関数 <span class="arithmatex">\(T\)</span> は <strong>マルコフ核(Markov kernel)</strong> <span class="arithmatex">\(\kappa:S\times A\times\mathcal{S}\to[0,1]\)</span> に置き換わります。ここで <span class="arithmatex">\(\kappa\)</span> は固定された <span class="arithmatex">\(s\in S,a\in A\)</span> に対して <span class="arithmatex">\(\kappa(s,a,\cdot)\)</span> が確率測度をなし、固定された <span class="arithmatex">\(S'\in\mathcal{S}\)</span> に対しては <span class="arithmatex">\(\kappa(\cdot,\cdot,S')\)</span> は可測関数であることが要請されます。報酬関数についてはそのまま可測性のみを課せば良いです。</p>
+<p>一般にこのような無限集合を扱うモデルは後述する<span class="arithmatex">\(Q\)</span>-学習ような有限集合にのみ有効な手法は通用しませんが、<strong>方策勾配法(policy gradient method)</strong> の発見などによりこの種のモデルも現在では計算機で扱えるようになっており、より高度な強化学習においては用いられています。</p>
+</details>
+<h2 id="_3"><a id="2">方策と最適化問題の定式化</a></h2>
+<p>以降マルコフ決定過程 <span class="arithmatex">\((S,A,T,R)\)</span> を固定して議論を進めます。ただの数理モデルを定義しただけでは何も面白くないですが、マルコフ決定過程モデルが与えられたとき、その上の <strong>方策(policy)</strong> を最適化するという問題が考えられるようになります。</p>
+<div class="admonition note">
+<p class="admonition-title">定義(方策)</p>
+<p>マルコフ決定過程 <span class="arithmatex">\((S,A,T,R)\)</span> が与えられたとき、<span class="arithmatex">\(\pi:S\times A\to[0,1]\)</span> が <strong>方策(policy)</strong> であるとは、任意の <span class="arithmatex">\(s\in S\)</span> に対して <span class="arithmatex">\(\sum_{a\in A}\pi(s,a)=1\)</span> が成立することをいう。</p>
+</div>
+<p>方策 <span class="arithmatex">\(\pi\)</span> の "気持ち" は <span class="arithmatex">\(s\in S\)</span> にいるときにアクションとして <span class="arithmatex">\(a\in A\)</span> を選ぶ条件付き確率の値が <span class="arithmatex">\(\pi(s,a)\)</span> に対応するというものです。</p>
+<p>さて、状態の初期値<span class="arithmatex">\(s_0\in S\)</span>が固定されているとする。このとき、方策 <span class="arithmatex">\(\pi\)</span> が与えられたとき、確率変数の列<span class="arithmatex">\(X_0,Y_0,X_1,Y_1,X_2,\ldots\)</span> を以下の要領で帰納的に定めていくことができます。なお、<span class="arithmatex">\(\{X_n\}\)</span> は <span class="arithmatex">\(S\)</span> に値を取り、<span class="arithmatex">\(\{Y_n\}\)</span> は <span class="arithmatex">\(A\)</span> に値を取ります。</p>
+<ul>
+<li>まず <span class="arithmatex">\(X_0\)</span> は確率 <span class="arithmatex">\(1\)</span> で <span class="arithmatex">\(s_0\)</span> をとるものとする。</li>
+<li><span class="arithmatex">\(X_n\)</span> が決まっているとき、<span class="arithmatex">\(Y_n\)</span> を分布 <span class="arithmatex">\(\pi(X_n,\cdot)\)</span> に沿って決める。つまり、任意の <span class="arithmatex">\(s_0,s_1,\ldots,s_n\in S\)</span> と <span class="arithmatex">\(a_1,\ldots,a_{n-1},a_n\in A\)</span> に対して、</li>
+</ul>
+<div class="arithmatex">\[
+\Pr[Y_n=a_n|X_0=s_0,Y_0=a_0,\ldots,Y_{n-1}=a_{n-1},X_n=s_n]=\pi(s_n,a_n)
+\]</div>
+<p>を満たすように定める。</p>
+<ul>
+<li><span class="arithmatex">\(Y_n\)</span> が決まっているとき、<span class="arithmatex">\(X_{n+1}\)</span> を分布 <span class="arithmatex">\(T(X_n,Y_n,\cdot)\)</span> に沿って決める。つまり、任意の <span class="arithmatex">\(s_0,s_1,\ldots,s_n,s_{n+1}\in S\)</span> と <span class="arithmatex">\(a_1,\ldots,a_{n-1},a_n\in A\)</span> に対して、</li>
+</ul>
+<div class="arithmatex">\[
+\Pr[X_{n+1}=s_{n+1}|X_0=s_0,Y_0=a_0,\ldots,Y_{n-1}=a_{n-1},X_n=s_n,Y_n=a_n]=T(s_n,a_n,s_{n+1})
+\]</div>
+<p>を満たすように定める。</p>
+<p>余談ですがこの状況では <span class="arithmatex">\(\{X_n\}_{n\geqq0}\)</span> が今の状況のみから次の遷移先が確率的に決定されるような確率過程である <strong>マルコフ連鎖(Markov chain)</strong> と呼ばれるものになります。</p>
+<p>今、<strong>割引率(discount ratio)</strong> と呼ばれる値 <span class="arithmatex">\(0\leq\gamma&lt;1\)</span> を予め定めておき、<span class="arithmatex">\(\pi\)</span> が方策全体を動くときに値</p>
+<div class="arithmatex">\[
+\mathbb{E}\left[\sum_{n=0}^\infty\gamma^nR(X_n,Y_n,X_{n+1})\right]
+\]</div>
+<p>を <span class="arithmatex">\(\pi\)</span> について最大化するということがやりたいことになります。ここで確率変数 <span class="arithmatex">\(X\)</span> に対して <span class="arithmatex">\(\mathbb{E}[X]\)</span> で <span class="arithmatex">\(X\)</span> の期待値を表しています。<span class="arithmatex">\(R\)</span> は有界なので、上式の期待値は収束することに注意しておきましょう。また、ここでは <span class="arithmatex">\(\gamma=0\)</span> を許容していますが、その場合は <span class="arithmatex">\(0^0=1\)</span> と考えています。</p>
+<p>なお、目的関数</p>
+<div class="arithmatex">\[
+\mathbb{E}\left[\sum_{n=0}^\infty\gamma^nR(X_n,Y_n,X_{n+1})\right]
+\]</div>
+<p>の"気持ち"としては将来もらえる報酬は <span class="arithmatex">\(\gamma^n\)</span> だけ割り引いて勘定するということになります。これまでの話をまとめると、</p>
+<ul>
+<li>マルコフ決定過程では、<strong>方策</strong> を一つ決めるとマルコフ連鎖ができる。</li>
+<li>マルコフ連鎖から得られる報酬の期待値を方策を動かしたときに最大化する問題を考える。</li>
+</ul>
+<p>ということになります。</p>
+<details>
+<summary>初期値が固定された場合の最適な方策の存在について</summary>
+<p>数学が強い方向けの補足ですが、この時点で方策全体はコンパクトであり、方策に対する目的関数の依存性が連続であることから直ちに初期値が固定された場合の最適方策の存在自体は分かります。以降もたびたび方策をパラメータに取る関数の最大値をとりますが、このような操作が許される理論的背景はここにあります。なお、ここで方策の定義域は有限集合なので、位相の入れ方は各点収束位相であろうが、適当なノルムから来る位相であろうが一致するのでさほど問題にしなくて良いです。</p>
+</details>
+<h2 id="_4"><a id="3">ベルマン方程式</a></h2>
+<p>さて、ここまでで述べてきた最適化問題は数学的には非常に素性が良いことが分かります。以下これを見ていきます。</p>
+<p>この節でもマルコフ決定過程 <span class="arithmatex">\((S,A,T,R)\)</span> および 割引率 <span class="arithmatex">\(0\leq\gamma&lt;1\)</span> が固定されているものとしましょう。</p>
+<p>まず、方策 <span class="arithmatex">\(\pi\)</span> と <span class="arithmatex">\(s\in S\)</span> に依存して決まる <strong>状態価値関数(state-valued-function)</strong> <span class="arithmatex">\(V^\pi(s)\)</span> を次式で定めます。</p>
+<div class="arithmatex">\[
+V^\pi(s)=\mathbb{E}_\pi\left[\sum_{n=0}^\infty\gamma^nR(X_n,Y_n,X_{n+1})\mid X_0=s\right]
+\]</div>
+<p>ここで、<span class="arithmatex">\(\{X_n\},\{Y_n\}\)</span> は前節の議論で定めたような <span class="arithmatex">\(X_0=s\)</span> と初期値を指定したときに方策 <span class="arithmatex">\(\pi\)</span> に沿って定まる確率過程です。以降は <span class="arithmatex">\(\pi,s\)</span> への依存を明確にしたいときには上のような表記を用いることにします。</p>
+<!-- $$
+Q^\pi(s,a)=\mathbb{E}_\pi\left[\sum_{n=0}^\infty\gamma^nR(X_n,Y_n,X_{n+1})\mid X_0=s,Y_0=a\right]
+$$
+
+が得られます。$V$-関数と $Q$-関数の間には、
+
+$$
+Q^\pi(s,a)=\sum_{s'\in S}T(s,a,s')\left(R(s,a,s')+\gamma V^\pi(s')\right)
+$$
+
+$$
+V^\pi(s)=\sum_{a\in A}\pi(s,a)Q^\pi(s,a)
+$$
+
+という関係があることに注意しましょう。 -->
+
+<p>式変形を頑張っていくと、</p>
+<div class="arithmatex">\[
+\begin{align*}
+V^\pi(s)&amp;=\mathbb{E}_\pi\left[\sum_{n=0}^\infty\gamma^nR(X_n,Y_n,X_{n+1})\mid X_0=s\right]\\
+&amp;=\mathbb{E}_\pi[R(s,Y_0,X_1)]+\gamma\mathbb{E}_\pi\left[\sum_{n=1}^\infty\gamma^{n-1}R(X_n,Y_n,X_{n+1})\mid X_0=s\right]\\
+&amp;=\sum_{a\in A,s'\in S}\pi(s,a)T(s,a,s')R(s,a,s')+\gamma\sum_{a\in As'\in S}T(s,a,s')\mathbb{E}_\pi\left[\sum_{n=0}^\infty\gamma^{n}R(X_{n+1},Y_{n+1},X_{n+2})\mid X_1=s'\right]\\
+&amp;=\sum_{s'\in S}\sum_{a\in A}\pi(s,a)T(s,a,s')\left(R(s,a,s')+\gamma V^\pi(s')\right)
+\end{align*}
+\]</div>
+<p>となり、<span class="arithmatex">\(\{V^\pi(s)\}_{s\in S}\)</span> たちが満たすべき各<span class="arithmatex">\(s\in S\)</span> に対して定まる <span class="arithmatex">\(|S|\)</span> 個の方程式</p>
+<div class="arithmatex">\[
+V^\pi(s)=\sum_{s'\in S}\sum_{a\in A}\pi(s,a)T(s,a,s')\left(R(s,a,s')+\gamma V^\pi(s')\right)
+\]</div>
+<p>が得られます。特にこれを <strong>ベルマン方程式(Bellman equation)</strong> と言います。ベルマン方程式の"気持ち"としては未来の予測報酬を再帰的に計算できるものと思ってもらって良いです。</p>
+<h2 id="_5"><a id="4">ベルマンの最適性原理</a></h2>
+<p>マルコフ決定過程の素性の良さは以下の <strong>ベルマンの最適性原理(Bellman principle of optimality)</strong> で述べられます。</p>
+<div class="admonition note">
+<p class="admonition-title">定理(ベルマンの最適性原理)</p>
+<p>ある方策 <span class="arithmatex">\(\pi^*\)</span> が存在して、すべての <span class="arithmatex">\(s\in S\)</span> に対して、</p>
+<div class="arithmatex">\[
+V^{\pi^*}(s)=\max_\pi V^\pi(s)
+\]</div>
+<p>が成立する。ここで <span class="arithmatex">\(\max_\pi\)</span> は方策全体に渡って最大化を行うという意味である。つまり、最適方策は初期値のとり方に依存しない。また、このような <span class="arithmatex">\(\pi^*\)</span> として各分布が決定的である、つまり、任意の <span class="arithmatex">\(s\in S\)</span> に対して、ある <span class="arithmatex">\(a\in A\)</span> が存在して、<span class="arithmatex">\(\pi(s,a)=1\)</span> となるものをとれる。</p>
+</div>
+<p>ベルマンの最適性原理で存在が保証されるような <span class="arithmatex">\(\pi^*\)</span> のことを <strong>最適方策(optimal policy)</strong> と言います。つまり、<span class="arithmatex">\(\pi^*\)</span> が最適方策とは任意の <span class="arithmatex">\(s\in S\)</span> に対して <span class="arithmatex">\(V^{\pi^*}(s)=\max_\pi V^\pi(s)\)</span> となることです。</p>
+<p>以下ベルマンの最適性原理を証明していきます。証明に際して、縮小写像に対する不動点定理を用います。これについては最後に補遺という形で証明を付しておきますが、この定理さえ認めてもらえれば証明自体は読めると思います。</p>
+<h2 id="_6"><a id="5">ベルマンの最適性原理の証明(概要)</a></h2>
+<p>証明の基本的なアイデアは方策そのものではなくて、<span class="arithmatex">\(V\)</span>-関数に着目することです。もしベルマンの最適性原理が主張するような <span class="arithmatex">\(\pi^*\)</span> があったとして、</p>
+<div class="arithmatex">\[
+V^{\pi^*}(s)=\max_\pi V^\pi(s)
+\]</div>
+<p>が成立します。さて、ベルマン方程式から</p>
+<div class="arithmatex">\[
+V^{\pi^*}(s)=\sum_{s'\in S}\sum_{a\in A}\pi(s,a)T(s,a,s')\left(R(s,a,s')+\gamma V^\pi(s')\right)
+\]</div>
+<p>ですが、<span class="arithmatex">\(\pi^*\)</span> は決定的になるようにとれたことと、<span class="arithmatex">\(V^{\pi^*}(s)=\max_\pi V^\pi(s)\)</span> が成立することを合わせると、さらに変形できて</p>
+<div class="arithmatex">\[
+V^{\pi^*}(s)=\max_{a\in A}\sum_{s'\in S}T(s,a,s')\left(R(s,a,s')+\gamma V^{\pi^*}(s')\right)
+\]</div>
+<p>が成立するはずです。注目すべきは両辺に <span class="arithmatex">\(\pi^*\)</span> が陽に現れておらず、<span class="arithmatex">\(V^{\pi^*}\)</span> の形でしか出現していないことです。そこで、まず <span class="arithmatex">\(\pi^*\)</span> を直接探すのではなく <span class="arithmatex">\(\{V^{\pi^*}(s)\}_{s\in S}\)</span> の値を探しにいきます。なお、上の方程式は <strong>ベルマンの最適方程式(Bellman optimal equation)</strong> といいます。つまり、関数 <span class="arithmatex">\(V^*:S\to\mathbb{R}\)</span> で任意の <span class="arithmatex">\(s\in S\)</span> について、</p>
+<div class="arithmatex">\[
+V^*(s)=\max_{a\in A}\sum_{s'\in S}T(s,a,s')\left(R(s,a,s')+\gamma V^*(s')\right)
+\]</div>
+<p>を探します。ここで、<a href="#7.3">縮小写像に対する不動点定理</a>を用います。不動点定理を用いると、一意な解 <span class="arithmatex">\(V^*\)</span> が存在することが分かるので、後は方策 <span class="arithmatex">\(\pi\)</span> で <span class="arithmatex">\(V^\pi\)</span> がベルマンの最適方程式を満たすようなものを見つけに行くと、これが <span class="arithmatex">\(V^*\)</span> と一致することから <span class="arithmatex">\(\pi\)</span> が最適方策であることが従います。</p>
+<h2 id="_7"><a id="6">ベルマンの最適性原理の証明</a></h2>
+<p>概要の部分で述べた通り、ベルマンの最適性原理の証明はベルマンの最適方程式の解を求めることに帰着します。まずベルマン方程式の解が一意に存在することを示します。以下に示す一連の定理からベルマンの最適性原理が証明できていることが分かるでしょう。</p>
+<p>実際に証明を行うにあたって、縮小写像の不動点定理が大活躍します。まずは不動点定理を適用する土台となる空間を定義しておきましょう。</p>
+<div class="admonition note">
+<p class="admonition-title">定義</p>
+<p><span class="arithmatex">\(S\)</span> を有限集合とする。(この文書では状態空間を想定している。) <span class="arithmatex">\(\mathbb{R}^S\)</span> で <span class="arithmatex">\(S\)</span>上の実数値関数全体の集合を表すものとする。このとき、各 <span class="arithmatex">\(f\in\mathbb{R}^S\)</span> に対して、</p>
+<div class="arithmatex">\[
+\|f\|_\infty=\max_{s\in S}|f(s)|
+\]</div>
+<p>と定める。すぐに分かるように2点 <span class="arithmatex">\(f,g\in\mathbb{R}^S\)</span> の間の距離を <span class="arithmatex">\(\|f-g\|_\infty=\max_{s\in S}|f(s)-g(s)|\)</span> で定めることにより、 <span class="arithmatex">\((\mathbb{R}^S,\|\cdot\|_\infty)\)</span> は<a href="#7.2">距離空間</a>になる。以降断ることがない限り、<span class="arithmatex">\(\mathbb{R}^S\)</span> には <span class="arithmatex">\(\|\cdot\|_\infty\)</span> により距離構造を与える。なお、<span class="arithmatex">\(\|\cdot\|_\infty\)</span> による距離は <strong><span class="arithmatex">\(\ell_\infty\)</span>-距離 (<span class="arithmatex">\(\ell_\infty\)</span>-metric)</strong> と呼ばれるものである。</p>
+<p>さらに <span class="arithmatex">\((\mathbb{R}^S,\|\cdot\|_\infty)\)</span> は完備である。実際<a href="#7.1">コーシー列</a> <span class="arithmatex">\(\{f_n\}\)</span> が与えられたとき、各 <span class="arithmatex">\(s\in S\)</span> に対して</p>
+<div class="arithmatex">\[
+|f_n(s)-f_m(s)|\leq \|f_n-f_m\|_\infty\to 0\quad(n,m\to\infty)
+\]</div>
+<p>より <span class="arithmatex">\(\{f_n(s)\}\)</span> は <span class="arithmatex">\(\mathbb{R}\)</span> のコーシー列なので、実数の完備性から各 <span class="arithmatex">\(s\in S\)</span> に対して、 <span class="arithmatex">\(f(s)=\lim_{n\to\infty}f_n(s)\)</span> として <span class="arithmatex">\(f\in\mathbb{R}^S\)</span> を定められるが、このとき <span class="arithmatex">\(\lim_{n\to\infty}f_n=f\)</span> である。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定理 (ベルマンの最適方程式の解の存在と一意性)</p>
+<p>マルコフ決定過程 <span class="arithmatex">\((S,A,T,R)\)</span> と割引率 <span class="arithmatex">\(0\leq\gamma&lt;1\)</span> が与えられているとする。このとき、ベルマンの最適方程式</p>
+<div class="arithmatex">\[
+V(s)=\max_{a\in A}\sum_{s'\in S}T(s,a,s')\left(R(s,a,s')+\gamma V(s')\right)\quad(\forall\,s\in S)
+\]</div>
+<p>を満たす <span class="arithmatex">\(V\in\mathbb{R}^S\)</span> がただ一つ存在する。</p>
+</div>
+<details>
+<summary>証明</summary>
+<p><span class="arithmatex">\(\mathcal{F}:\mathbb{R}^S\to\mathbb{R}^S\)</span>を、<span class="arithmatex">\(f\in\mathbb{R}^S\)</span> に対して</p>
+<div class="arithmatex">\[
+(\mathcal{F} f)(s)=\max_{a\in A}\sum_{s'\in S}T(s,a,s')\left(R(s,a,s')+\gamma f(s')\right)
+\]</div>
+<p>とすることで定める。<span class="arithmatex">\(V\)</span> がベルマン最適方程式の解であることと <span class="arithmatex">\(\mathcal{F}V=V\)</span>、すなわち <span class="arithmatex">\(V\)</span> が <span class="arithmatex">\(\mathcal{F}\)</span> の不動点であることは同値であることに注意する。ゆえに <span class="arithmatex">\(\mathcal{F}\)</span> が縮小写像であることを見れば証明が完了するが、これは任意の <span class="arithmatex">\(f,g\in\mathbb{R}^S\)</span> に対して、</p>
+<div class="arithmatex">\[
+\begin{align*}
+&amp;\|\mathcal{F}f-\mathcal{F}g\|_\infty\\
+=&amp;\max_{s\in S}\left|\max_{a\in A}\left(\sum_{s'\in S}T(s,a,s')\left(R(s,a,s')+\gamma f(s')\right)\right)-\max_{a\in A}\left(\sum_{s'\in S}T(s,a,s')\left(R(s,a,s')+\gamma g(s')\right)\right)\right|\\
+\leqq&amp;\max_{s\in S}\max_{a\in A}\left|\sum_{s'\in S}T(s,a,s')\left(R(s,a,s')+\gamma f(s')\right)-\sum_{s'\in S}T(s,a,s')\left(R(s,a,s')+\gamma g(s')\right)\right|\\
+=&amp;\max_{s\in S}\max_{a\in A}\left|\gamma\sum_{s'\in S}T(s,a,s')(f(s')-g(s'))\right|\\
+\leqq&amp;\max_{s\in S}\gamma |f(s')-g(s')|\\
+=&amp;\gamma\|f-g\|_\infty
+\end{align*}
+\]</div>
+<p>となるので <span class="arithmatex">\(0\leqq\gamma &lt;1\)</span> より縮小写像の不動点定理から従う。よって示された。</p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">定理 (ベルマン最適方程式の解は方策で書ける)</p>
+<p>マルコフ決定過程 <span class="arithmatex">\((S,A,T,R)\)</span> と割引率 <span class="arithmatex">\(0\leq\gamma&lt;1\)</span> が与えられているとする。このとき、ベルマンの最適方程式の唯一つの解 <span class="arithmatex">\(V^*\in\mathbb{R}^S\)</span> に対して、 <span class="arithmatex">\(\pi_*:S\to A\)</span> を <span class="arithmatex">\(\pi_*(s)\)</span> がベルマン最適方程式の右辺の最大値を与えるもの、つまり、</p>
+<div class="arithmatex">\[
+\sum_{s'\in S}T(s,\pi_*(s),s')\left(R(s,\pi_*(s),s')+\gamma V^*(s')\right)=\max_{a\in A}\sum_{s'\in S}T(s,a,s')\left(R(s,a,s')+\gamma V^*(s')\right)
+\]</div>
+<p>がすべての <span class="arithmatex">\(s\in S\)</span> で成立するようにする。このとき、方策 <span class="arithmatex">\(\pi^*\)</span> を</p>
+<div class="arithmatex">\[
+\pi^*(s,a)=\begin{cases}1 &amp;(a=\pi_*(s))\\ 0 &amp; (\mathrm{otherwise})\end{cases}
+\]</div>
+<p>として定めると、<span class="arithmatex">\(V^{\pi^*}=V^*\)</span> となる。</p>
+</div>
+<details>
+<summary>証明</summary>
+<p><span class="arithmatex">\(\mathcal{G}:\mathbb{R}^S\to\mathbb{R}^S\)</span> を各 <span class="arithmatex">\(f\in\mathbb{R}^S\)</span> に対して、</p>
+<div class="arithmatex">\[
+(\mathcal{G}f)(s)=\sum_{s'\in S}\sum_{a\in A}T(s,a,s')\pi^*(s,a)(R(s,a,s')+\gamma f(s'))
+\]</div>
+<p>と定める。まず <span class="arithmatex">\(V^{\pi^*}\)</span> が <span class="arithmatex">\(\mathcal{G}\)</span> の不動点である、すなわち <span class="arithmatex">\(\mathcal{G}V^{\pi^*}=V^{\pi^*}\)</span> である。これはベルマン方程式そのものである。一方 <span class="arithmatex">\(V^*\)</span> も <span class="arithmatex">\(\mathcal{G}\)</span> の不動点である。実際、</p>
+<div class="arithmatex">\[
+\begin{align*}
+(\mathcal{G}V^*)(s)&amp;=\sum_{s'\in S}\sum_{a\in A}T(s,a,s')\pi^*(s,a)(R(s,a,s')+\gamma V^*(s'))\\
+&amp;=\sum_{s'\in S}T(s,\pi_*(s),s')\left(R(s,\pi_*(s),s')+\gamma V^*(s')\right)\\
+&amp;=\max_{a\in A}\sum_{s'\in S}T(s,a,s')\left(R(s,a,s')+\gamma V^*(s')\right)\\
+&amp;=V^*(s)
+\end{align*}
+\]</div>
+<p>となるためである。また、 <span class="arithmatex">\(\mathcal{G}\)</span> は縮小写像である。これは、任意の <span class="arithmatex">\(f,g\in\mathbb{R}^S\)</span> に対して、</p>
+<div class="arithmatex">\[
+\begin{align*}
+&amp;\|\mathcal{G}f-\mathcal{G}g\|_\infty\\
+=&amp;\max_{s\in S}\left|\sum_{s'\in S}\sum_{a\in A}T(s,a,s')\pi^*(s,a)(R(s,a,s')+\gamma f(s'))-\sum_{s'\in S}\sum_{a\in A}T(s,a,s')\pi^*(s,a)(R(s,a,s')+\gamma g(s'))\right|\\
+=&amp;\max_{s\in S}\left|\gamma\sum_{s'\in S}\sum_{a\in A}T(s,a,s')\pi^*(s,a)(f(s')-g(s'))\right|\\
+&amp;\leqq\gamma\|f-g\|_\infty
+\end{align*}
+\]</div>
+<p>より <span class="arithmatex">\(0\leqq\gamma&lt;1\)</span> なので従う。以上から縮小写像の不動点の一意性より <span class="arithmatex">\(V^{\pi^*}=V^*\)</span> が分かる。</p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">定理 (最適方策が存在する)</p>
+<p>前の定理で定めた <span class="arithmatex">\(\pi^*\)</span> は最適方策になっている。つまり、任意の方策 <span class="arithmatex">\(\pi\)</span> と <span class="arithmatex">\(s\in S\)</span> に対して、</p>
+<div class="arithmatex">\[
+V^{\pi^*}(s)\geqq V^\pi(s)
+\]</div>
+<p>が成立する。</p>
+</div>
+<details>
+<summary>証明</summary>
+<p>ベルマン最適方程式の解の存在と一意性で用いた<span class="arithmatex">\(\mathcal{F}:\mathbb{R}^S\to\mathbb{R}^S\)</span>を再び用いる。もう一度定義を書いておくと、<span class="arithmatex">\(f\in\mathbb{R}^S\)</span> に対して</p>
+<div class="arithmatex">\[
+(\mathcal{F} f)(s)=\max_{a\in A}\sum_{s'\in S}T(s,a,s')\left(R(s,a,s')+\gamma f(s')\right)
+\]</div>
+<p>とすることで定める。これが縮小写像であることはベルマン最適方程式の解の存在と一意性のところで見たので、これまでの議論と不動点定理の証明から任意の <span class="arithmatex">\(f\in\mathbb{R}^S\)</span> に対して、すべての <span class="arithmatex">\(s\in S\)</span> について</p>
+<div class="arithmatex">\[
+V^*(s)=\lim_{n\to\infty}(\mathcal{F}^n f)(s)
+\]</div>
+<p>が成立する。ここで、<span class="arithmatex">\(\mathcal{F}^n\)</span> とは <span class="arithmatex">\(\mathcal{F}\)</span> を <span class="arithmatex">\(n\)</span> 回適用した作用素、つまり <span class="arithmatex">\(\mathcal{F}^1=\mathcal{F},\mathcal{F}^n=\mathcal{F}\circ\mathcal{F}^{n-1}(n\geqq2)\)</span> として定まる写像のことである。</p>
+<p>今任意の方策 <span class="arithmatex">\(\pi\)</span> と <span class="arithmatex">\(s\in S\)</span> に対して、ベルマン方程式から</p>
+<div class="arithmatex">\[
+\begin{align*}
+V^\pi(s)&amp;=\sum_{s'\in S}\sum_{a\in A}T(s,a,s')\pi(s,a)(R(s,a,s')+\gamma V^\pi(s'))\\
+&amp;\leqq\max_{a\in A}\sum_{s'\in S}T(s,a,s')\left(R(s,a,s')+\gamma V^\pi(s')\right)\\
+&amp;=(\mathcal{F}V^\pi)(s)
+\end{align*}
+\]</div>
+<p>であり、さらにもし <span class="arithmatex">\(f,g\in\mathbb{R}^S\)</span> が任意の <span class="arithmatex">\(s\in S\)</span> に対して <span class="arithmatex">\(f(s)\leqq g(s)\)</span> を満たすならば</p>
+<div class="arithmatex">\[
+\begin{align*}
+(\mathcal{F} f)(s)&amp;=\max_{a\in A}\sum_{s'\in S}T(s,a,s')\left(R(s,a,s')+\gamma f(s')\right)\\
+&amp;\leqq\max_{a\in A}\sum_{s'\in S}T(s,a,s')\left(R(s,a,s')+\gamma g(s')\right)\\
+&amp;=(\mathcal{F} g)(s)
+\end{align*}
+\]</div>
+<p>となるから、以上より <span class="arithmatex">\(\mathcal{F}^n V^\pi\)</span> は各点で単調増加する、つまり任意の <span class="arithmatex">\(s\in S\)</span> に対して、</p>
+<div class="arithmatex">\[
+V^\pi(s)\leqq(\mathcal{F}V^\pi)(s)\leqq(\mathcal{F}^2V^\pi)(s)\leqq\cdots\leqq (\mathcal{F}^nV^\pi)(s)\leqq\cdots
+\]</div>
+<p>なので、</p>
+<div class="arithmatex">\[
+V^\pi(s)\leqq\lim_{n\to\infty}(\mathcal{F}^nV^\pi)(s)=V^*(s)=V^{\pi^*}(s)
+\]</div>
+<p>となって示したいことが得られた。</p>
+</details>
+<h2 id="_8"><a id="7">補遺：数学の準備</a></h2>
+<p>ベルマンの最適性原理の証明に際して縮小写像に対する不動点定理を用います。そのため、この節ではこれらについて解説しますが、この節は他の節とは独立しているので、ここから先に読んでも知っている人は読み飛ばしてもらっても構いません。</p>
+<h3 id="_9"><a id="7.1">実数の完備性</a></h3>
+<p>すでに実数は馴染みのある集合かもしれませんが、正確に「実数とは何か」について触れておきましょう。理系の方は「中間値の定理」という定理について習ったと思いますが、これが典型的に実数を実数たらしめる <strong>完備性(completeness)</strong> と呼ばれる性質になります。完備性の正確な定義は同値な定義が様々知られていますが、今回は後々のことを考えてコーシー列の収束を用います。</p>
+<div class="admonition note">
+<p class="admonition-title">定義 (コーシー列)</p>
+<p>数列 <span class="arithmatex">\(\{a_n\}\)</span> が <strong>コーシー列</strong> であるとは、</p>
+<div class="arithmatex">\[
+\lim_{n,m\to\infty}|a_n-a_m|=0
+\]</div>
+<p>が成立する、すなわち任意の <span class="arithmatex">\(\varepsilon&gt;0\)</span> に対して十分大きい自然数 <span class="arithmatex">\(N\)</span> が存在して、 <span class="arithmatex">\(N\leqq n,m\)</span> となる任意の自然数 <span class="arithmatex">\(n,m\)</span> に対して、</p>
+<div class="arithmatex">\[
+|a_n-a_m|&lt;\varepsilon
+\]</div>
+<p>となることをいう。</p>
+</div>
+<p>さて、以下の定義が実数の完備性です。これは実数に対して要請される公理の一つなので、今回は証明なしに公理として認めることにしますが、当然別の方法で実数の完備性を定義した場合にはその同値性を証明する必要があります。</p>
+<div class="admonition note">
+<p class="admonition-title">公理 (完備性)</p>
+<p>任意のコーシー列は収束する。つまり、数列 <span class="arithmatex">\(\{a_n\}\)</span> がコーシー列であればある実数 <span class="arithmatex">\(a\in\mathbb{R}\)</span> が存在して、 <span class="arithmatex">\(\lim_{n\to\infty}a_n=a\)</span> となる。</p>
+</div>
+<details class="細かい補足">
+<summary>細かい補足</summary>
+<p>実数はZFC公理系の上で完備全順序体であるような唯一つのモデルですが、厳密にはコーシー列の収束だけ実数の完備性を規定できません。これは全順序体にコーシー列の収束を要請したとしても超実数のような非アルキメデス的なモデルが存在するためです。そこでさらに「アルキメデスの公理」と呼ばれる公理を追加すると、今日知られる実数を完全に規定できます。</p>
+</details>
+<h3 id="_10"><a id="7.2">距離空間</a></h3>
+<div class="admonition note">
+<p class="admonition-title">定義 (距離空間)</p>
+<p>空でない集合 <span class="arithmatex">\(X\)</span> と関数 <span class="arithmatex">\(d_X:X\times X\to[0,\infty)\)</span> であって、以下の条件を満たす組 <span class="arithmatex">\((X,d_X)\)</span> を <strong>距離空間(metric space)</strong> という。</p>
+<ol>
+<li>すべての <span class="arithmatex">\(x\in X\)</span> に対して、<span class="arithmatex">\(d_X(x,x)=0\)</span>となる。</li>
+<li>すべての <span class="arithmatex">\(x,y\in X\)</span> に対して、<span class="arithmatex">\(d_X(x,y)=d_X(y,x)\)</span>となる。</li>
+<li>すべての <span class="arithmatex">\(x,y,z\in X\)</span> に対して、<span class="arithmatex">\(d_X(x,y)+d_X(y,z)\geq d_X(x,z)\)</span>となる。</li>
+<li>もし <span class="arithmatex">\(x,y\in X\)</span> が <span class="arithmatex">\(d_X(x,y)=0\)</span> を満たすなら、<span class="arithmatex">\(x=y\)</span>となる。</li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定義 (距離空間上の点の収束)</p>
+<p>距離空間<span class="arithmatex">\((X,d_X)\)</span>の列 <span class="arithmatex">\(x_1,x_2,\ldots,\)</span>が <span class="arithmatex">\(x\in X\)</span> に <strong>収束する(converge)</strong> とは、</p>
+<div class="arithmatex">\[
+\lim_{n\to\infty}d_X(x_n,x)=0
+\]</div>
+<p>が成立することをいう。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定義 (距離空間の完備性)</p>
+<p>距離空間 <span class="arithmatex">\((X,d_X)\)</span> の列 <span class="arithmatex">\(x_1,x_2,\ldots,\)</span> が <strong>コーシー列(Cauchy sequence)</strong> であるとは、</p>
+<div class="arithmatex">\[
+\lim_{n,m\to\infty}d_X(x_n,x_m)=0
+\]</div>
+<p>となることをいう。また、 <span class="arithmatex">\((X,d_X)\)</span> が <strong>完備(complete)</strong> であるとは、<span class="arithmatex">\(X\)</span> の任意のコーシー列が収束することをいう。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">定義 (縮小写像)</p>
+<p>2つの距離空間 <span class="arithmatex">\((X,d_X),(Y,d_Y)\)</span> の間の写像 <span class="arithmatex">\(f:X\to Y\)</span> が <strong>縮小写像(contracting map)</strong> であるとは、ある <span class="arithmatex">\(0\leqq\gamma&lt;1\)</span> が存在して、任意の <span class="arithmatex">\(x,y\in X\)</span> に対して、</p>
+<div class="arithmatex">\[
+d_Y(f(x),f(y))\leqq\gamma d_X(x,y)
+\]</div>
+<p>となることである。</p>
+</div>
+<h3 id="_11"><a id="7.3">縮小写像の不動点定理</a></h3>
+<div class="admonition note">
+<p class="admonition-title">定理 (縮小写像の不動点定理)</p>
+<p><span class="arithmatex">\((X,d_X)\)</span> を完備距離空間、<span class="arithmatex">\(f:X\to X\)</span> を縮小写像とする。このとき、<span class="arithmatex">\(f\)</span> はただ一つの不動点をもつ。すなわち、<span class="arithmatex">\(f(x^*)=x^*\)</span> を満たす <span class="arithmatex">\(x^*\in X\)</span> が唯一つ存在する。</p>
+<p>さらに任意の <span class="arithmatex">\(x\in X\)</span> に対して点列 <span class="arithmatex">\(\{x_n\}\)</span> を</p>
+<div class="arithmatex">\[
+x_1=x^*,\quad x_{n+1}=f(x_n)\,(n\geqq 1)
+\]</div>
+<p>として定めると、<span class="arithmatex">\(\lim_{n\to\infty}x_n=x\)</span> となる。</p>
+</div>
+<details>
+<summary>証明</summary>
+<p><span class="arithmatex">\(0\leqq\gamma&lt;1\)</span> を任意の <span class="arithmatex">\(x,y\in X\)</span> に対して、 <span class="arithmatex">\(d_X(f(x),f(y))\leqq\gamma d_X(x,y)\)</span> となるようにとる。<span class="arithmatex">\(x\in X\)</span> を任意にとり、定理の主張で定めた点列 <span class="arithmatex">\(\{x_n\}\)</span> を考える。この点列はコーシー列である。実際任意の <span class="arithmatex">\(n\leqq m\)</span> に対して、</p>
+<div class="arithmatex">\[
+d_X(x_n,x_m)=\gamma d_X(x_{n-1},x_{m-1})=\cdots=\gamma^{n-1}d_X(x_1,x_{m-n+1})
+\]</div>
+<p>より <span class="arithmatex">\(n,m\to\infty\)</span> で</p>
+<div class="arithmatex">\[
+\lim_{n,m\to\infty} d_X(x_n,x_m)=0
+\]</div>
+<p>となるためである。ゆえに完備性から <span class="arithmatex">\(x^*=\lim_{n\to\infty}x_n\)</span> をとると、</p>
+<div class="arithmatex">\[
+\begin{align*}
+d_X(x^*,f(x^*))&amp;\leqq\lim_{n\to\infty}d_X(x^*,x_n)+d_X(x_n,x_{n+1})+d_X(x_{n+1},f(x^*))\\
+&amp;\leqq\lim_{n\to\infty}(1+\gamma)d_X(x^*,x_n)+d_X(x_n,x_{n+1})\\
+&amp;=0
+\end{align*}
+\]</div>
+<p>となり、<span class="arithmatex">\(f(x^*)=x^*\)</span> を得る。よって <span class="arithmatex">\(x^*\)</span> は <span class="arithmatex">\(f\)</span> の不動点である。一方不動点 <span class="arithmatex">\(y^*\)</span> が他に存在したとすると、</p>
+<div class="arithmatex">\[
+d_X(x^*y^*)\leqq\gamma d_X(f(x^*),f(y^*))=\gamma d_X(x^*,y^*)
+\]</div>
+<p>より <span class="arithmatex">\(\gamma&lt;1\)</span> なので <span class="arithmatex">\(d_X(x^*,y^*)=0\)</span> となって <span class="arithmatex">\(x^*=y^*\)</span> とならなければならないので示したいことが得られた。</p>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>
