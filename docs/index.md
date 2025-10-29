@@ -3,19 +3,19 @@
 ## 第1回 環境構築
 以下のことをやります。
 
-1. [はじめに](./第1回/1_intro.md)
-2. [Linux の有効化](./第1回/2_linux.md)
-3. [Visual Studio Code のインストール](./第1回/3_vscode.md)
-4. [Python の実行方法](./第1回/4_exec.md)
+1. [はじめに](./1/1_intro.md)
+2. [Linux の有効化](./1/2_linux.md)
+3. [Visual Studio Code のインストール](./1/3_vscode.md)
+4. [Python の実行方法](./1/4_exec.md)
 
 ## 第2回 条件分岐、ループ、入力
-Google Colab を使います。[こちら](./第2回/0_intro.md)に移動してください。
+Google Colab を使います。[こちら](./2/0_intro.md)に移動してください。
 
 なお、内容的には以下のことをやります。
 
-1. [プログラムを書こう](./第2回/1_program.md)
-2. [条件分岐](./第2回/2_if.md)
-3. [ループ](./第2回/3_loop.md)
+1. [プログラムを書こう](./2/1_program.md)
+2. [条件分岐](./2/2_if.md)
+3. [ループ](./2/3_loop.md)
 
 ## その他
 

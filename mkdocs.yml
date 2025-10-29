@@ -9,6 +9,8 @@ theme:
 plugins:
   - search
   - open-in-new-tab
+  - literate-nav:
+      nav_file: SUMMARY.md
 
 extra_javascript:
   - javascripts/mathjax.js
