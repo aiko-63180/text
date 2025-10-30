@@ -82,7 +82,10 @@ $$
 \mathbb{E}\left[\sum_{n=0}^\infty\gamma^nR(X_n,Y_n,X_{n+1})\right]
 $$
 
-を $\pi$ について最大化するということがやりたいことになります。ここで確率変数 $X$ に対して $\mathbb{E}[X]$ で $X$ の期待値を表しています。$R$ は有界なので、上式の期待値は収束することに注意しておきましょう。また、ここでは $\gamma=0$ を許容していますが、その場合は $0^0=1$ と考えています。
+を $\pi$ について最大化するということがやりたいことになります。ここで確率変数 $X$ に対して $\mathbb{E}[X]$ で $X$ の期待値を表しています。また、ここでは $\gamma=0$ を許容していますが、その場合は $0^0=1$ と考えています。
+
+??? Tips "期待値の収束性に関する注意"
+    $R$ は有界なので、上式の期待値は収束することに注意しておきましょう。
 
 なお、目的関数
 
@@ -114,21 +117,6 @@ $$
 
 ここで、$\{X_n\},\{Y_n\}$ は前節の議論で定めたような $X_0=s$ と初期値を指定したときに方策 $\pi$ に沿って定まる確率過程です。以降は $\pi,s$ への依存を明確にしたいときには上のような表記を用いることにします。
 
-<!-- $$
-Q^\pi(s,a)=\mathbb{E}_\pi\left[\sum_{n=0}^\infty\gamma^nR(X_n,Y_n,X_{n+1})\mid X_0=s,Y_0=a\right]
-$$
-
-が得られます。$V$-関数と $Q$-関数の間には、
-
-$$
-Q^\pi(s,a)=\sum_{s'\in S}T(s,a,s')\left(R(s,a,s')+\gamma V^\pi(s')\right)
-$$
-
-$$
-V^\pi(s)=\sum_{a\in A}\pi(s,a)Q^\pi(s,a)
-$$
-
-という関係があることに注意しましょう。 -->
 
 式変形を頑張っていくと、
 
@@ -136,7 +124,7 @@ $$
 \begin{align*}
 V^\pi(s)&=\mathbb{E}_\pi\left[\sum_{n=0}^\infty\gamma^nR(X_n,Y_n,X_{n+1})\mid X_0=s\right]\\
 &=\mathbb{E}_\pi[R(s,Y_0,X_1)]+\gamma\mathbb{E}_\pi\left[\sum_{n=1}^\infty\gamma^{n-1}R(X_n,Y_n,X_{n+1})\mid X_0=s\right]\\
-&=\sum_{a\in A,s'\in S}\pi(s,a)T(s,a,s')R(s,a,s')+\gamma\sum_{a\in As'\in S}T(s,a,s')\mathbb{E}_\pi\left[\sum_{n=0}^\infty\gamma^{n}R(X_{n+1},Y_{n+1},X_{n+2})\mid X_1=s'\right]\\
+&=\sum_{a\in A,s'\in S}\pi(s,a)T(s,a,s')R(s,a,s')+\gamma\sum_{a\in A,s'\in S}\pi(s,a)T(s,a,s')\mathbb{E}_\pi\left[\sum_{n=0}^\infty\gamma^{n}R(X_{n+1},Y_{n+1},X_{n+2})\mid X_1=s'\right]\\
 &=\sum_{s'\in S}\sum_{a\in A}\pi(s,a)T(s,a,s')\left(R(s,a,s')+\gamma V^\pi(s')\right)
 \end{align*}
 $$
@@ -471,7 +459,7 @@ $$
     となり、$f(x^*)=x^*$ を得る。よって $x^*$ は $f$ の不動点である。一方不動点 $y^*$ が他に存在したとすると、
 
     $$
-    d_X(x^*y^*)\leqq\gamma d_X(f(x^*),f(y^*))=\gamma d_X(x^*,y^*)
+    d_X(x^*,y^*)=d_X(f(x^*),f(y^*))\leqq\gamma d_X(x^*,y^*)
     $$
 
     より $\gamma<1$ なので $d_X(x^*,y^*)=0$ となって $x^*=y^*$ とならなければならないので示したいことが得られた。

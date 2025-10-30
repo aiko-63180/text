@@ -28,3 +28,4 @@ AI の作成で用いた $Q$-学習とその理論的な基礎であるマルコ
 
 - [マルコフ決定過程の基礎理論](../others/mdp.md)
 - [$Q$-学習](../others/q_learning.md)
+- [今回のAIのチューニング方法について](../others/reward.md)
