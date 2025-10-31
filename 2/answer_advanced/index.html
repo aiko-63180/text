@@ -1,0 +1,1297 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../answer/">
+      
+      
+        <link rel="next" href="../../others/columns/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>総合演習の解答と解説 - プログラミングの基本</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="プログラミングの基本" class="md-header__button md-logo" aria-label="プログラミングの基本" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            プログラミングの基本
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              総合演習の解答と解説
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="プログラミングの基本" class="md-nav__button md-logo" aria-label="プログラミングの基本" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    プログラミングの基本
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ホーム
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    第1回
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            第1回
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1/1_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. はじめに
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1/2_linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Linux 開発環境の有効化
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1/3_vscode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Visual Studio Code のインストール
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1/4_exec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Python の実行方法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    第2回
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            第2回
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    はじめに
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_program/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. プログラミングを書こう
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_if/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. 条件分岐
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. ループ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../answer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    練習問題の解答
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    総合演習の解答と解説
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    総合演習の解答と解説
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      問題1.
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="問題1.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      解答例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      解説
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      背景
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      問題2.
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="問題2.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      解答例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      解説
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      背景
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      問題3.
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="問題3.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      解答例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      解説
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      発展的な課題の解説
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    その他
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            その他
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/columns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    コラムのまとめ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/mdp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    マルコフ決定過程の基礎理論
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/q_learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    \(Q\)-学習
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/reward/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    今回のAIのチューニング方法について
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    このサイトについて
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      問題1.
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="問題1.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      解答例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      解説
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      背景
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      問題2.
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="問題2.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      解答例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      解説
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      背景
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      問題3.
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="問題3.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      解答例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      解説
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      発展的な課題の解説
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">総合演習の解答と解説</h1>
+<h2 id="1">問題1.</h2>
+<h3 id="_2">解答例</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">pi_approx</span> <span class="o">=</span> <span class="mf">3.14159265359</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">k</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">pi_approx</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">1e-7</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span><span class="o">/</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">k</span><span class="o">+</span><span class="mi">4</span><span class="p">)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">k</span><span class="o">+</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">w</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">k</span><span class="o">+</span><span class="mi">6</span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="o">-</span><span class="n">z</span><span class="o">-</span><span class="n">w</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">16</span><span class="o">**</span><span class="n">k</span><span class="p">)</span> 
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">b</span> <span class="o">+=</span> <span class="n">a</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="_3">解説</h3>
+<p>予め <span class="arithmatex">\(0\)</span> で初期化した第 <span class="arithmatex">\(n\)</span> 項までの値を足したものに対応する変数(解答例だと<code>b</code>) を用意して起き、各ループで級数の中の項</p>
+<div class="arithmatex">\[
+\frac{1}{16^k}\left(\frac{4}{8k+1}-\frac{2}{8k+4}-\frac{1}{8k+5}-\frac{1}{8k+6}\right)
+\]</div>
+<p>を足していけばOKです。各ループごとに和を最初から計算し直す必要はないことに注意しましょう。</p>
+<h3 id="_4">背景</h3>
+<p>問題文にも書きましたが、BPP公式</p>
+<div class="arithmatex">\[
+\pi=\sum_{k=0}^\infty \frac{1}{16^k}\left(\frac{4}{8k+1}-\frac{2}{8k+4}-\frac{1}{8k+5}-\frac{1}{8k+6}\right)
+\]</div>
+<p>収束速度や並列処理の容易性などからコンピュータでの円周率の数値計算に今でも使われています。特にスーパーコンピュータによる処理はいかに並列に問題を処理できるかということが性能に直結するので、各項をバラバラに計算して最後に足し合わせることができるBPP公式はスーパーコンピュータと相性が良いわけです。しかも級数は <span class="arithmatex">\(16^{-k}\)</span> の項がかかっているので非常に収束が高速です。</p>
+<p>BPP公式の証明は<a href="https://xn--w6q13e505b.jp/proof/bbp.html">この辺</a>を見てください。無限和と積分の順序交換<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> さえ認めてあげると、高校数学の範囲の計算しかしないので理解はできると思います。</p>
+<h2 id="2">問題2.</h2>
+<h3 id="_5">解答例</h3>
+<p>以下のコードだとループの数が多すぎて10秒くらいかかりますが正解できます。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">for</span> <span class="n">x1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">):</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  <span class="k">for</span> <span class="n">x2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">):</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="k">for</span> <span class="n">y1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">):</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>      <span class="k">for</span> <span class="n">y2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">):</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="k">if</span> <span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y1</span><span class="o">-</span><span class="n">y2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">65</span><span class="p">:</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>          <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">counter</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># 重複して数えた分を取り除く</span>
+</code></pre></div>
+そこで予め <code>for</code> ループで探す候補を削ると速くなります。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">diff</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">for</span> <span class="n">x1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">):</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  <span class="k">for</span> <span class="n">y1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">):</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="k">for</span> <span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">)</span> <span class="ow">in</span> <span class="n">diff</span><span class="p">:</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>      <span class="n">x2</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">dx</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>      <span class="n">y2</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">+</span> <span class="n">dy</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>      <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x2</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">y2</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
+</code></pre></div></p>
+<h3 id="_6">解説</h3>
+<p>ループを削って効率的に探索できるかを見たくて問題にしました。しかし、</p>
+<div class="arithmatex">\[
+65 = 1^2+ 8^2 = 4^2+7^2
+\]</div>
+<p>に注目すれば片方の座標 <span class="arithmatex">\((x,y)\)</span> を決めればもう片方の座標の候補は <span class="arithmatex">\(16\)</span> 個しかないので候補を絞れます。さらに対称性などを使って考えるべきケースを減らしていけば実は手計算でも頑張ればできるので、以下のコードでも正解です。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">answer</span> <span class="o">=</span> <span class="mi">73672</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="_7">背景</h3>
+<p>今回用いた <span class="arithmatex">\(65\)</span> という数字は</p>
+<div class="highlight"><pre><span></span><code>2つの相異なる平方数の二乗和として2通り以上で表される最小の自然数
+</code></pre></div>
+<p>という性質をもつので答えが大きくなりやすいため、この数字を採用しました。これは <span class="arithmatex">\(65=5\cdot 13\)</span> という素因数分解ができることに由来しています。なぜなら <span class="arithmatex">\(5,13\)</span> は <span class="arithmatex">\(4\)</span>で割って <span class="arithmatex">\(1\)</span> 余る素数のうち小さい方から <span class="arithmatex">\(1\)</span> 番目と <span class="arithmatex">\(2\)</span> 番目だからです。</p>
+<p><a href="https://manabitimes.jp/math/844">フェルマーの2平方和定理</a>という定理は知っている方もいるかもしれませんが、正整数 <span class="arithmatex">\(n\)</span> が2つの <span class="arithmatex">\(0\)</span> も含めた平方数の和で表されるのは <span class="arithmatex">\(n\)</span> を素因数分解したときに <span class="arithmatex">\(4\)</span> で割って <span class="arithmatex">\(3\)</span> 余る素数の指数がすべての偶数であるとき、かつそのときに限るという事実があります。この定理よりさらに定量的な情報を調べているのが、<strong>ヤコビの2平方和定理</strong> というもので、その主張は以下で述べられます。なお、 <span class="arithmatex">\(\mathbb{N},\mathbb{Z}\)</span> はそれぞれ自然数全体、整数全体の集合です。</p>
+<div class="admonition note">
+<p class="admonition-title">ヤコビの2平方和定理</p>
+<p>正整数 <span class="arithmatex">\(n\in\mathbb{N}\)</span> に対して、</p>
+<div class="arithmatex">\[
+r(n)=|\{(x,y)\in\mathbb{Z}\times\mathbb{Z}:x^2+y^2=n\}|
+\]</div>
+<p>とおく。さらに <span class="arithmatex">\(p_1(n),p_3(n)\)</span> でそれぞれ <span class="arithmatex">\(n\)</span> の素因数の中で <span class="arithmatex">\(4\)</span> で割って <span class="arithmatex">\(1\)</span> 余るもの、<span class="arithmatex">\(3\)</span> 余るものの総数、すなわち</p>
+<div class="arithmatex">\[
+p_1(n)=|\{p\in\mathbb{N}:p\equiv 1(\mod 4),p \mbox{は} n の素因数\}|
+\]</div>
+<div class="arithmatex">\[
+p_3(n)=|\{p\in\mathbb{N}:p\equiv 3(\mod 4),p \mbox{は} n の素因数\}|
+\]</div>
+<p>とおく。このとき、</p>
+<div class="arithmatex">\[
+r(n)=4(p_1(n)-p_3(n))
+\]</div>
+<p>が成立する。</p>
+</div>
+<p>この定理をここで証明するのは難しいのでしませんが、通常は複素関数論の手法を用いて証明されます。また、その際に主要な道具立てとなるテータ関数は保形形式などのさらに進んだ数学とも関わりが深く、数学を進んで勉強したい方には一つのランドマークにはなるかもしれません。<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<h2 id="3">問題3.</h2>
+<h3 id="_8">解答例</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">solve</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="k">return</span> <span class="mi">0</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  <span class="k">elif</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="k">return</span> <span class="mi">0</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  <span class="n">R</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="k">if</span> <span class="n">R</span> <span class="o">%</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>      <span class="k">return</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="n">R</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">R</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">solve</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</code></pre></div>
+<h3 id="_9">解説</h3>
+<p>この問題は少し数学的な考察を要するようにしてみました。次の定理に気づけるかどうかが鍵です。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>正整数 <span class="arithmatex">\(n\)</span> に対して、 ある <span class="arithmatex">\(m\)</span> が存在して <span class="arithmatex">\(R_m\)</span> が <span class="arithmatex">\(n\)</span> の倍数になるための必要十分条件は、<span class="arithmatex">\(n\)</span> が <span class="arithmatex">\(2\)</span> でも <span class="arithmatex">\(5\)</span> でも割り切れないことである。</p>
+</div>
+<details>
+<summary>証明</summary>
+<p>必要性は自明である。</p>
+<p>十分性を示す。つまり、<span class="arithmatex">\(n\)</span> が <span class="arithmatex">\(2\)</span> でも <span class="arithmatex">\(5\)</span> でも割り切れないとして、ある <span class="arithmatex">\(m\)</span> が存在して <span class="arithmatex">\(R_m\)</span> が <span class="arithmatex">\(n\)</span> の倍数となることを示す。<span class="arithmatex">\(R_1,\ldots,R_{n+1}\)</span> の中で <span class="arithmatex">\(1\leq i&lt;j\leq n+1\)</span> かつ <span class="arithmatex">\(n\)</span> での剰余が一致する、すなわち</p>
+<div class="arithmatex">\[
+R_i\equiv R_j\mod n
+\]</div>
+<p>となるものをとる。このとき</p>
+<div class="arithmatex">\[
+R_j-R_i=R_{j-i}\times 10^i
+\]</div>
+<p>であるが、左辺は <span class="arithmatex">\(n\)</span> の倍数であるので右辺もそうである。ところが <span class="arithmatex">\(n\)</span> は <span class="arithmatex">\(2\)</span> でも <span class="arithmatex">\(5\)</span> でも割り切れないので <span class="arithmatex">\(10^i\)</span> で割り切れることはなく、これは <span class="arithmatex">\(R_{j-i}\equiv 0 \mod n\)</span> であることを意味する。</p>
+</details>
+<p>この証明から正整数 <span class="arithmatex">\(n\)</span> に対して、問題3.の出力を対応させるような関数を <span class="arithmatex">\(f:\mathbb{N}\to\mathbb{N}\)</span> とおいたときに <span class="arithmatex">\(f(n)\leqq n\)</span> となることに注意すれば、 for ループが <span class="arithmatex">\(n\)</span> 回で足りることに注意してください。</p>
+<h3 id="_10">発展的な課題の解説</h3>
+<p>さて、発展的な課題として残した等号成立条件 <span class="arithmatex">\(f(n)=n\)</span> がいつ成立するかについて考えましょう。結論を述べると以下のようになります。なお計算機で実際にいつ等号が成立するかを実験してみると、規則性に感づけるはずです。こういった計算機による証拠集めは数学において非常に有効です。ただし、実際に証明を与えることは少し乖離があります。</p>
+<div class="admonition note">
+<p class="admonition-title">定理</p>
+<p>これまでの議論と同じ記号のもと、<span class="arithmatex">\(f(n)=n\)</span> となるのは <span class="arithmatex">\(n\)</span> が <span class="arithmatex">\(3\)</span> のべきである、すなわちある非負整数 <span class="arithmatex">\(k\)</span> が存在して <span class="arithmatex">\(n=3^k\)</span> と書けるとき、かつそのときに限る。</p>
+</div>
+<details>
+<summary>証明 (<span class="arithmatex">\(n=3^k\)</span> のとき <span class="arithmatex">\(f(n)=n\)</span> である)</summary>
+<p>以下正整数 <span class="arithmatex">\(a,b\)</span> に対して <span class="arithmatex">\(a\)</span> が <span class="arithmatex">\(b\)</span> で割り切れることを <span class="arithmatex">\(a|b\)</span> と書くことにする。<span class="arithmatex">\(v_3:\mathbb{N}\to\mathbb{N}\)</span> を <span class="arithmatex">\(3\)</span>進付値、すなわち</p>
+<div class="arithmatex">\[
+v_3(m)=\max\{k\geq 0:k\mbox{ は整数で }3^k|m\}
+\]</div>
+<p>とおく。このとき、任意の正整数 <span class="arithmatex">\(m\)</span> について</p>
+<div class="arithmatex">\[
+v_3(R_m)=v_3(m)
+\]</div>
+<p>が成立する。これが言えれば、<span class="arithmatex">\(n|R_m\)</span> のとき <span class="arithmatex">\(v_3(m)=v_3(R_m)\geq v_3(n)=k\)</span> となり <span class="arithmatex">\(m\geq 3^k\)</span> が言えるので、<span class="arithmatex">\(f(n)\leq n\)</span> と合わせて <span class="arithmatex">\(f(n)=n\)</span> が言える。</p>
+<p>数学オリンピックなどで有名な <a href="https://ja.wikipedia.org/wiki/LTE%E3%81%AE%E8%A3%9C%E9%A1%8C">LTEの補題</a> を仮定すれば <span class="arithmatex">\(v_3(R_m)=m\)</span> となることはほとんど自明だが、今回はより初等的な方法で証明を与えよう。<span class="arithmatex">\(v_3(m)\)</span> に対する数学的帰納法を用いる。まず <span class="arithmatex">\(v_3(m)=0\)</span>すなわち <span class="arithmatex">\(m\)</span> が <span class="arithmatex">\(3\)</span> の倍数でないときは</p>
+<div class="arithmatex">\[
+R_m\equiv\sum_{i=0}^{m-1}10^i\equiv\sum_{i=0}^{m-1}1\equiv m\not\equiv 0\mod 3
+\]</div>
+<p>となるので <span class="arithmatex">\(v_3(R_m)=0\)</span> となって示したいことが得られる。<span class="arithmatex">\(v_3(m)\leqq\ell\)</span> で <span class="arithmatex">\(v_3(R_m)=v_3(m)\)</span> が成立すると仮定して <span class="arithmatex">\(v_3(m)=\ell+1\)</span> の場合を考えよう。このとき、<span class="arithmatex">\(m=3^{\ell+1}q\)</span> と正整数 <span class="arithmatex">\(q\)</span> を用いて書くと、</p>
+<div class="arithmatex">\[
+\begin{align*}
+v_3(R_m)&amp;=v_3\left(\frac{10^m-1}{9}\right)\\
+&amp;=v_3\left(\frac{(10^{3^{\ell}q}-1)(10^{2\cdot 3^{\ell}q}+10^{3^{\ell}q}+1)}{9}\right)\\
+&amp;=v_3(10^{3^{\ell }q}-1)+v_3(10^{2\cdot 3^{\ell }q}+10^{3^{\ell }q}+1)-v_3(9)\\
+&amp;=v_3(9R_{m/3})+v_3(10^{2\cdot 3^{\ell }q}+10^{3^{\ell }q}+1)-2
+\end{align*}
+\]</div>
+<p>となる。ここで、帰納法の仮定から <span class="arithmatex">\(v_3(9R_{m/3})=2+v_3(R_{m/3})=2+v_3(m/3)=2+\ell\)</span> となる一方、</p>
+<div class="arithmatex">\[
+10^{2\cdot 3^{\ell}q}+10^{3^{\ell}q}+1\equiv 1+1+1=3\not\equiv 0\mod 9
+\]</div>
+<p>より <span class="arithmatex">\(v_3(10^{2\cdot 3^{\ell}q}+10^{3^{\ell}q}+1)=1\)</span> なので、以上をまとめて <span class="arithmatex">\(v_3(R_m)=\ell+1=v_3(m)\)</span> となる。ゆえに帰納法で示すことができた。</p>
+</details>
+<details>
+<summary>証明 (<span class="arithmatex">\(f(n)=n\)</span> のとき <span class="arithmatex">\(n=3^k\)</span> なる <span class="arithmatex">\(k\)</span> が存在する)</summary>
+<p>ここでは前半の証明で用いた記号は踏襲する。</p>
+<p>非負整数 <span class="arithmatex">\(k\)</span> と <span class="arithmatex">\(3\)</span> と互いに素な整数 <span class="arithmatex">\(q\)</span> を用いて <span class="arithmatex">\(n=3^kq\)</span> と書こう。<span class="arithmatex">\(f(n)=0\)</span> のときは等号は成立しえないので、以下 <span class="arithmatex">\(q\)</span> は <span class="arithmatex">\(2\)</span> でも <span class="arithmatex">\(5\)</span> でも割れないとして良い。<span class="arithmatex">\(f(n)=n\)</span> ならば <span class="arithmatex">\(q=1\)</span> を示せばよいので、対偶をとって <span class="arithmatex">\(q&gt;1\)</span> ならば <span class="arithmatex">\(f(n)&lt;n\)</span> を示そう。 <span class="arithmatex">\(m=f(n)\)</span> とおく。 <span class="arithmatex">\(n|R_m\)</span> は <span class="arithmatex">\(3^k|R_m\)</span> かつ <span class="arithmatex">\(q|R_m\)</span> と同値である。</p>
+<p>前半の議論から <span class="arithmatex">\(3^k|R_m\)</span> は <span class="arithmatex">\(v_3(m)\geq k\)</span> と同値である。また、<span class="arithmatex">\(q|R_m\)</span> と <span class="arithmatex">\(q|10^m-1\)</span> は同値である。ゆえに</p>
+<div class="arithmatex">\[
+\mathrm{ord}_q(10)=\min\{d\in\mathbb{N}:10^d\equiv 1\mod q\}
+\]</div>
+<p>とおけば、<span class="arithmatex">\(q|R_m\)</span> は <span class="arithmatex">\(\mathrm{ord}_q(10)|m\)</span> と同値になる。以上の議論から <span class="arithmatex">\(a,b\)</span> の最小公倍数を <span class="arithmatex">\(\mathrm{lcm}(a,b)\)</span> と書くとき、<span class="arithmatex">\(n\)</span> が <span class="arithmatex">\(2\)</span> でも <span class="arithmatex">\(5\)</span> でも割り切れない限り実は</p>
+<div class="arithmatex">\[
+f(n)=\mathrm{lcm}(3^k,\mathrm{ord}_q(10))
+\]</div>
+<p>が成立する。<a href="https://ja.wikipedia.org/wiki/%E3%82%AA%E3%82%A4%E3%83%A9%E3%83%BC%E3%81%AE%CF%86%E9%96%A2%E6%95%B0">オイラーのトーシェント関数</a>を <span class="arithmatex">\(\varphi\)</span> と書くことにすると、<span class="arithmatex">\(q\)</span> と <span class="arithmatex">\(10\)</span> は互いに素だから、よく知られたように <span class="arithmatex">\(10^{\varphi(q)}\equiv 1\mod q\)</span> なので、<span class="arithmatex">\(\mathrm{ord}_q(10)|\varphi(q)\)</span> である。<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> <span class="arithmatex">\(q&gt;1\)</span> ならば <span class="arithmatex">\(\varphi(q)&lt;q\)</span> に注意すると、</p>
+<div class="arithmatex">\[
+\begin{align*}
+f(n)&amp;=\mathrm{lcm}(3^k,\mathrm{ord}_q(10))\\
+&amp;\leqq 3^k\mathrm{ord}_q(10)\\
+&amp;\leqq 3^k\varphi(q)\\
+&amp;&lt; 3^k q\\
+&amp;=n
+\end{align*}
+\]</div>
+<p>となり、 <span class="arithmatex">\(f(n)&lt;n\)</span> が示されたことになる。</p>
+</details>
+<details>
+<summary>計算量的な補足</summary>
+<p>以上の議論から <span class="arithmatex">\(f(n)\)</span> を計算量的な観点から眺めてみると、<span class="arithmatex">\(f(n)\)</span> の計算は実質的に <a href="https://ja.wikipedia.org/wiki/%E9%9B%A2%E6%95%A3%E5%AF%BE%E6%95%B0">離散対数問題</a> の特別なケースを解くことに相当し、このことから <span class="arithmatex">\(f(n)\)</span> を計算する多項式時間アルゴリズムは存在しないだろうということが予想されます。</p>
+</details>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>ちゃんと正当化したい方は<a href="https://ja.wikipedia.org/wiki/%E5%84%AA%E5%8F%8E%E6%9D%9F%E5%AE%9A%E7%90%86">優収束定理</a>などのキーワードで調べてみると良い。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>一冊だけ証明の書いてある和書を挙げておくと <a href="https://www.nippyo.co.jp/shop/book/5054.html">
+エリアス・Ｍ.スタイン ラミ・シャカルチ (著)、 プリンストン解析学講義2 複素解析、 日本評論社</a> がおすすめです。数論ではなく複素解析の本です。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>やや議論を省略しているが、一般に互いに素な整数 <span class="arithmatex">\(a,b\)</span> に対して、ある <span class="arithmatex">\(d\)</span> が存在して <span class="arithmatex">\(\{k\in\mathbb{N}:a^k\equiv 1\mod b\}=\{nd:n\in\mathbb{N}\}\)</span> となることが割と簡単に示せるので、これを用いています。&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>
